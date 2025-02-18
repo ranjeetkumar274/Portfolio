@@ -9,8 +9,7 @@
   },
   "license": "ISC",
   "author": "Ranjeet Kumar",
-  "type": "commonjs",
-  "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "parcel build index.html --dist-dir dist",
