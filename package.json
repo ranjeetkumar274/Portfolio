@@ -1,0 +1,32 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This is a personal Portfolio",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "\"git+https://github.com/ranjeetkumar274/Portfolio.git\""
+  },
+  "license": "ISC",
+  "author": "Ranjeet Kumar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.5",
+    "react-scroll": "^1.9.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.13.3",
+    "autoprefixer": "^10.4.20",
+    "parcel": "^2.13.3",
+    "postcss": "^8.5.2",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17"
+  }
+}
