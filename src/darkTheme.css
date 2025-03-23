@@ -1,0 +1,74 @@
+/* Dark Theme CSS Variables */
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-card: #1e293b;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --accent-primary: #60a5fa;
+  --accent-secondary: #3b82f6;
+  --card-border: #374151;
+  --timeline-color: #6366f1;
+}
+
+/* Apply dark theme to specific components */
+.dark body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Dark theme section backgrounds */
+.dark section {
+  background-color: var(--bg-primary);
+}
+
+/* Dark theme card styles */
+.dark .bg-yellow-200 {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary);
+}
+
+/* Override timeline colors */
+.dark [--tl-color:#daa520] {
+  --tl-color: var(--timeline-color) !important;
+}
+
+/* Override bullet background */
+.dark [data-child="bullet"] {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--timeline-color) !important;
+}
+
+/* Dark theme text colors */
+.dark .text-zinc-600,
+.dark .text-zinc-500,
+.dark .dark\:text-zinc-500 {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark theme skill tags */
+.dark .bg-gray-200.text-gray-700 {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+}
+
+/* Dark theme headings */
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4 {
+  color: var(--text-primary);
+}
+
+/* Dark theme buttons */
+.dark button.text-sky-600 {
+  color: var(--accent-primary);
+}
+
+/* Dark theme period badge */
+.dark .bg-green-500\/20.text-green-700 {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+} 

@@ -15,28 +15,28 @@ import Profiles from "./components/Profiles";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="bg-gray-900 min-h-screen text-white">
       <Header/>
       <Profiles/>
-      <section id="about">
+      <section id="about" className="dark pb-16">
         <Home/>
       </section>
-      <section id="education">
+      <section id="education" className="dark pb-16">
         <Education/>
       </section>
-      <section id="skills">
+      <section id="skills" className="dark pb-16">
         <Skills/>
       </section> 
-      <section id="experience">
+      <section id="experience" className="dark pb-16">
         <Experience/>
       </section> 
-      <section id="projects">
+      <section id="projects" className="dark pb-16">
         <Project/>
       </section> 
-      <section id="contact">
+      <section id="contact" className="dark pb-16">
         <Contact/>
       </section>
-      <section id="links">
+      <section id="links" className="dark">
         <Footer/>
       </section>
     </div>
@@ -48,7 +48,11 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />} />
-        <Route path="/project-details" element={<ProjectDetails />} />
+        <Route path="/project-details" element={
+          <div className="bg-gray-900 min-h-screen text-white dark">
+            <ProjectDetails />
+          </div>
+        } />
       </Routes>
     </BrowserRouter>
   );

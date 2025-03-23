@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import dark theme styles */
+@import './src/darkTheme.css';
+
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure dark mode is applied to all sections */
+body.bg-gray-900 {
+  background-color: #111827;
+}
+
+/* Add a subtle gradient to the background */
+.dark body {
+  background: linear-gradient(to bottom, #0f172a, #111827);
+}
+
+/* Add some animation to hover states */
+.dark a, .dark button {
+  transition: all 0.3s ease;
+}
