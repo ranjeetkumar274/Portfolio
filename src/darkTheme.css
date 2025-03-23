@@ -29,8 +29,8 @@
   color: var(--text-primary);
 }
 
-/* Override timeline colors */
-.dark [--tl-color:#daa520] {
+/* Timeline container styling for dark mode */
+.dark .timeline-container {
   --tl-color: var(--timeline-color) !important;
 }
 
@@ -68,6 +68,7 @@
 }
 
 /* Dark theme period badge */
+.dark .bg-green-500\/20,
 .dark .bg-green-500\/20.text-green-700 {
   background-color: rgba(16, 185, 129, 0.2);
   color: #34d399;

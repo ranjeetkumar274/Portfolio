@@ -1,4 +1,5 @@
 import imgg from '../assets/ashuu6.jpg';
+import Profiles from './Profiles';
 
 const Home = () => {
 
@@ -16,7 +17,8 @@ const Home = () => {
 
 
   return (
-    <div className='pt-2'>
+    <div className='pt-24'>
+        <Profiles />
         <div className='p-5'>
             <h1 className="text-4xl text-center font-bold pb-3">Hello, I'm Ranjeet Kumar</h1>
             <p className="text-center text-lg">Welcome to my portfolio</p>

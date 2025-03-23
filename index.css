@@ -1,9 +1,9 @@
+/* Import dark theme styles */
+@import './src/darkTheme.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import dark theme styles */
-@import './src/darkTheme.css';
 
 /* Add smooth scroll behavior */
 html {

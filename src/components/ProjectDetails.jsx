@@ -1,35 +1,30 @@
-
-import { useLocation } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
-
-const ProjectDetails = () => {
-  const location = useLocation();
-  const { project } = location.state || {};
+const ProjectDetails = ({ projectData }) => {
+  const project = projectData;
 
   if (!project) {
-    return <div>No project data available</div>;
+    return <div className="text-white">No project data available</div>;
   }
 
   return (
     <div className="">
-      <Header />
-      <div className='overflow-hidden pt-10 pr-[200px] pl-[200px]'>
-        <img className='rounded-t-[70px]' src={project.innerimage} alt={project.title} />
-        <div className='flex justify-between pt-5 pb-5'>
-          <h2 className='font-bold text-slate-700 text-2xl'>{project.title}</h2>
-          <div className='flex gap-5'>
+      <div className='overflow-hidden pt-4 px-4 md:px-10 lg:pr-[200px] lg:pl-[200px]'>
+        <div className="rounded-t-[30px] overflow-hidden border border-gray-700 shadow-lg">
+          <img className='w-full' src={project.innerimage} alt={project.title} />
+        </div>
+        <div className='flex flex-col md:flex-row md:justify-between pt-8 pb-5 gap-4'>
+          <h2 className='font-bold text-white text-2xl md:text-3xl'>{project.title}</h2>
+          <div className='flex gap-3'>
             <div className="flex items-center gap-2">
               <button
-                className="cursor-pointer bg-gray-300 relative inline-flex items-center justify-center gap-2 text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-[#F5F5F5] hover:text-[#06B6D4] h-9 rounded-md px-3"
+                className="cursor-pointer bg-gray-800 relative inline-flex items-center justify-center gap-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-gray-700 hover:text-cyan-400 h-10 rounded-md px-4 text-gray-300 border border-gray-700"
                 onClick={() => window.open(project.previewLink, '_blank')}
               >
                 <svg
-                  className="lucide lucide-rocket text-cyan-500 dark:text-cyan-400"
+                  className="lucide lucide-rocket text-cyan-500"
                   strokeLinejoin="round"
                   strokeLinecap="round"
                   strokeWidth="2"
-                  stroke="#06B6D4"
+                  stroke="currentColor"
                   fill="none"
                   viewBox="0 0 24 24"
                   height="22"
@@ -48,27 +43,23 @@ const ProjectDetails = () => {
                 Preview
               </button>
               <button
-                className="cursor-pointer bg-gray-300 relative inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-[#F5F5F5] hover:text-[#60A5FA] h-9 px-3"
+                className="cursor-pointer bg-gray-800 relative inline-flex items-center justify-center gap-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-gray-700 hover:text-indigo-400 h-10 rounded-md px-4 text-gray-300 border border-gray-700"
                 onClick={() => window.open(project.sourceCodeLink, '_blank')}
               >
                 <svg
-                  className="lucide lucide-newspaper text-blue-400 dark:text-blue-600"
+                  className="lucide lucide-github text-indigo-400"
                   strokeLinejoin="round"
                   strokeLinecap="round"
                   strokeWidth="2"
-                  stroke="#60A5FA"
+                  stroke="currentColor"
                   fill="none"
                   viewBox="0 0 24 24"
                   height="22"
                   width="22"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"
-                  ></path>
-                  <path d="M18 14h-8"></path>
-                  <path d="M15 18h-5"></path>
-                  <path d="M10 6h8v4h-8V6Z"></path>
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                  <path d="M9 18c-4.51 2-5-2-7-2"></path>
                 </svg>
                 Source Code
               </button>
@@ -76,72 +67,75 @@ const ProjectDetails = () => {
           </div>
         </div>
 
-        <div className='flex pb-4'>
-          <ul className='flex gap-3'>
-            <h3 className='font-semibold text-l'>TECHNOLOGIES : </h3>
-            {project.technologies.map((desc, index) => (
-              <div key={index} className='border-black-500 border-2 rounded-lg pr-2 pl-2 bg-gray-200'>
-                <h5 className='text-slate-600'>{desc}</h5>
-              </div>
-            ))}
-          </ul>
+        <div className='flex pb-6'>
+          <div className='flex gap-3 items-center'>
+            <h3 className='font-semibold text-lg text-white'>TECHNOLOGIES:</h3>
+            <div className='flex flex-wrap gap-2'>
+              {project.technologies.map((tech, index) => (
+                <div key={index} className='rounded-full px-3 py-1 bg-gray-700 text-gray-300 border border-gray-600'>
+                  <span className='text-sm'>{tech}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className='flex flex-col'>
-          <ul className='flex flex-col gap-3'>
-            <h3 className='font-bold text-lg'>Project Description</h3>
+        <div className='flex flex-col mb-10'>
+          <h3 className='font-bold text-xl text-white mb-4'>Project Description</h3>
+          <div className='space-y-3 text-gray-300'>
             {project.description.map((desc, index) => (
-              <li key={index} className='text-slate-600'>{desc}</li>
+              <p key={index} className='leading-relaxed'>{desc}</p>
             ))}
-          </ul>
+          </div>
         </div>
 
-        <div className='flex flex-col gap-3 items-center pt-20'>
-          <h1 className='font-semibold text-lg text-slate-700'>Feedback Form</h1>
-          <form className="bg-white w-[90vw] md:w-[50vw] p-6 rounded-lg shadow-md">
-            <div className="mb-4">
-              <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
+        <div className='flex flex-col gap-5 items-center pt-16 pb-20'>
+          <h1 className='font-semibold text-2xl text-white'>Feedback Form</h1>
+          <form className="bg-gray-800 w-full md:w-[80vw] lg:w-[50vw] p-6 md:p-8 rounded-lg shadow-lg border border-gray-700">
+            <div className="mb-5">
+              <label htmlFor="name" className="block text-gray-300 text-sm font-medium mb-2">
                 Name
               </label>
               <input
                 placeholder="Enter Full Name"
                 type="text"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                className="shadow appearance-none border border-gray-700 rounded-lg w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               />
             </div>
-            <div className="mb-4">
-              <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
+            <div className="mb-5">
+              <label htmlFor="subject" className="block text-gray-300 text-sm font-medium mb-2">
                 Subject
               </label>
               <input
                 placeholder="Enter Subject"
                 type="text"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="subject"
+                className="shadow appearance-none border border-gray-700 rounded-lg w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               />
             </div>
-            <div className="mb-4">
-              <label htmlFor="content" className="block text-gray-700 text-sm font-bold mb-2">
+            <div className="mb-6">
+              <label htmlFor="content" className="block text-gray-300 text-sm font-medium mb-2">
                 Suggestions/Feedback
               </label>
               <textarea
                 rows="5"
-                placeholder="Enter your content"
+                placeholder="Enter your feedback"
                 id="content"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-gray-700 rounded-lg w-full py-3 px-4 bg-gray-700 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               ></textarea>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center">
               <button
                 type="submit"
-                className="bg-blue-500 text-sm hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-300"
               >
-                Submit
+                Submit Feedback
               </button>
             </div>
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

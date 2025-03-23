@@ -3,7 +3,7 @@ import uniiimg from '../assets/uni-img.png';
 
 const Education = () => {
     return (
-        <div className='pt-2'>
+        <div className='pt-24'>
             <h1 className="text-4xl text-center font-bold pb-10 text-white">Education</h1>
             <div className="flex justify-center pb-10">
             <div
